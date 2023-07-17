@@ -3,31 +3,25 @@
 namespace App\Model;
 
 use App\Model\Link;
+use App\Model\Resources;
 
-class PagedResources
+class PagedResources extends Resources
 {
     public function __construct(
-        public array $embedded,
-        public array $links,
+        array $embedded,
+        array $links,
         public PageMetadata $page,
-    ) { }
+    ) {
+        parent::__construct($embedded, $links);
+    }
 
     public static function from(array $data, string $factory): PagedResources
     {
+        $resources = Resources::from($data, $factory);
         return new PagedResources(
-            array_map(
-                function(array $subDataList) use ($factory) {
-                    return array_map(
-                        function($subData) use ($factory) {
-                            return call_user_func($factory, $subData);
-                        },
-                        $subDataList
-                    );
-                },
-                $data['_embedded']
-            ),
-            array_map(fn(array $linkData) => Link::from($linkData), $data['_links']),
-            PageMetadata::from($data['page'])
+            $resources->embedded,
+            $resources->links,
+            PageMetadata::from($data['page']),
         );
     }
 }
