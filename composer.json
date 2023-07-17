@@ -1,6 +1,9 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "name": "opie-insectes/taxref-client",
+    "description": "Simple TaxRef API client.",
+    "version": "0.0.1",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
