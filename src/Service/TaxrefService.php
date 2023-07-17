@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\PagedResources;
+use App\Model\Resources;
 use App\Model\TaxonsResource;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
@@ -60,5 +61,13 @@ class TaxrefService
         if ($data === null)
             return null;
         return TaxonsResource::from($data, 'App\Model\TaxonsResource::from');
+    }
+
+    public function taxaIdMedia(int $id): ?Resources
+    {
+        $data = $this->get("/taxa/$id/media")?->toArray();
+        if ($data === null)
+            return null;
+        return Resources::from($data, 'App\Model\MediaResource::from');
     }
 }
