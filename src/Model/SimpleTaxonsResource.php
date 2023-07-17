@@ -25,7 +25,7 @@ class SimpleTaxonsResource
             $data["scientificName"],
             $data["fullNameHtml"],
             $data["referenceNameHtml"],
-            isset($data["_links"]) ? array_map(fn(array $linkData) => Link::from($linkData), $data['_links']) : null,
+            isset($data["_links"]) ? Link::fromArray($data['_links']) : null,
         );
     }
 }

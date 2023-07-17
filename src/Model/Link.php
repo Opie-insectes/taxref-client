@@ -15,6 +15,7 @@ class Link
         public ?bool $templated,
     ) { }
 
+    /** Return a Link parsed from Link data. */
     public static function from(array $data): Link
     {
         return new Link(
@@ -27,5 +28,11 @@ class Link
             $data["type"] ?? null,
             $data["templated"] ?? null,
         );
+    }
+
+    /** Return a list of Links parsed from an array of link data. */
+    public static function fromArray(array $linksData): array
+    {
+        return array_map(fn(array $linkData) => Link::from($linkData), $linksData);
     }
 }

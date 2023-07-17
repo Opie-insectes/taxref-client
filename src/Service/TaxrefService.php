@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\PagedResources;
+use App\Model\TaxonsResource;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
@@ -45,11 +46,19 @@ class TaxrefService
         return $response;
     }
 
-    public function taxaAutocomplete(string $term): ?\App\Model\PagedResources
+    public function taxaAutocomplete(string $term): ?PagedResources
     {
         $data = $this->get('/taxa/autocomplete', ['term' => $term])?->toArray();
         if ($data === null)
             return null;
         return PagedResources::from($data, 'App\Model\SimpleTaxonsResource::from');
+    }
+
+    public function taxaId(int $id): ?TaxonsResource
+    {
+        $data = $this->get("/taxa/$id")?->toArray();
+        if ($data === null)
+            return null;
+        return TaxonsResource::from($data, 'App\Model\TaxonsResource::from');
     }
 }

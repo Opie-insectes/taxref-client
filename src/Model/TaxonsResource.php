@@ -54,6 +54,11 @@ class TaxonsResource
         public ?array $links,
     ) { }
 
+    public function __toString()
+    {
+        return "$this->fullName [cdNom $this->id] [cdRef $this->referenceId]";
+    }
+
     public static function from(array $data): TaxonsResource
     {
         return new TaxonsResource(
@@ -103,7 +108,7 @@ class TaxonsResource
             $data["pf"] ?? null,
             $data["cli"] ?? null,
             $data["taxrefVersion"],
-            isset($data["_links"]) ? array_map(fn(array $linkData) => Link::from($linkData), $data['_links']) : null,
+            isset($data["_links"]) ? Link::fromArray($data['_links']) : null,
         );
     }
 }
