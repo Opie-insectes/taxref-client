@@ -9,7 +9,9 @@ Pré-requis :
 
 Supporte les routes suivantes :
 
-- `/taxa/autocomplete`
+- `/taxa/autocomplete` (paramètres manquants)
+- `/taxa/{id}` (paramètres manquants)
+- `/taxa/{id}/media` (paramètres manquants)
 
 Pour chaque route supportée, il existe une commande correspondante pour utiliser
 le client depuis un terminal :
