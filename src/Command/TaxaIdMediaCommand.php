@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Command;
+namespace Opie\TaxrefClient\Command;
 
-use App\Service\TaxrefService;
+use Opie\TaxrefClient\Service\TaxrefService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

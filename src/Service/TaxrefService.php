@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Service;
+namespace Opie\TaxrefClient\Service;
 
-use App\Model\PagedResources;
-use App\Model\Resources;
-use App\Model\TaxonsResource;
+use Opie\TaxrefClient\Model\PagedResources;
+use Opie\TaxrefClient\Model\Resources;
+use Opie\TaxrefClient\Model\TaxonsResource;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
@@ -52,7 +52,7 @@ class TaxrefService
         $data = $this->get('/taxa/autocomplete', ['term' => $term])?->toArray();
         if ($data === null)
             return null;
-        return PagedResources::from($data, 'App\Model\SimpleTaxonsResource::from');
+        return PagedResources::from($data, 'Opie\TaxrefClient\Model\SimpleTaxonsResource::from');
     }
 
     public function taxaId(int $id): ?TaxonsResource
@@ -60,7 +60,7 @@ class TaxrefService
         $data = $this->get("/taxa/$id")?->toArray();
         if ($data === null)
             return null;
-        return TaxonsResource::from($data, 'App\Model\TaxonsResource::from');
+        return TaxonsResource::from($data, 'Opie\TaxrefClient\Model\TaxonsResource::from');
     }
 
     public function taxaIdMedia(int $id): ?Resources
@@ -68,6 +68,6 @@ class TaxrefService
         $data = $this->get("/taxa/$id/media")?->toArray();
         if ($data === null)
             return null;
-        return Resources::from($data, 'App\Model\MediaResource::from');
+        return Resources::from($data, 'Opie\TaxrefClient\Model\MediaResource::from');
     }
 }

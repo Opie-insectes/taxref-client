@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace Opie\TaxrefClient\Model;
 
-use App\Model\Link;
-use App\Model\Resources;
+use Opie\TaxrefClient\Model\Link;
+use Opie\TaxrefClient\Model\Resources;
 
 class PagedResources extends Resources
 {

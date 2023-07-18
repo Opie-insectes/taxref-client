@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace Opie\TaxrefClient\Model;
 
-use App\Model\SimpleTaxon;
+use Opie\TaxrefClient\Model\SimpleTaxon;
 
 class MediaResource
 {

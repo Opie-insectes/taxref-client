@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace Opie\TaxrefClient\Model;
 
-use App\Model\Link;
+use Opie\TaxrefClient\Model\Link;
 
 class Resources
 {

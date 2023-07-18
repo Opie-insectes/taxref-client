@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Opie\TaxrefClient;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;

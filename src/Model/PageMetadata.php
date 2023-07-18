@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace Opie\TaxrefClient\Model;
 
-use App\Model\PageMetadata;
+use Opie\TaxrefClient\Model\PageMetadata;
 
 class PageMetadata
 {
